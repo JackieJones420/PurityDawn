@@ -1,0 +1,21 @@
+   {%- unless product.type == "Gift Card" or product.tags contains 'Discontinued' -%}
+        <div class="clearfix">
+          <!-- Product UCG -->
+          <div class=" large--one-whole">
+            {%- include 'pp-shoppable-ig' -%}
+          </div>
+        </div>
+      {%- endunless -%}
+
+{% schema %}
+  {
+    "name": "IG",
+    "settings": []
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

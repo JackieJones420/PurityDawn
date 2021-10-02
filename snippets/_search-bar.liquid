@@ -1,0 +1,27 @@
+<div id="search-bar">
+  <form action="/search" method="get" role="search">
+    <input type="search" name="q" value="{{ search.terms | escape }}" placeholder='Search e.g. "Mascara"'
+      class="input-group-field main-font" aria-label="{{ 'general.search.placeholder' | t }}">
+    <label class="off-screen" id="searchbutton_desktop">Search Button Desktop</label>
+    <input style="visibility: hidden;padding: 0;" type="submit" aria-labelledby="searchbutton_desktop" />
+    <button id="open-search-btn">
+      <span class="icon-fallback-text">
+        <?xml version="1.0" encoding="utf-8"?>
+        <svg width="28px" height="28px" viewBox="0 0 28 28" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink"
+          xmlns="http://www.w3.org/2000/svg">
+          <g id="IconsSearch">
+            <g id="Search" transform="translate(5.875 5)">
+              <path
+                d="M6.5 13C10.0899 13 13 10.0899 13 6.5C13 2.91015 10.0899 0 6.5 0C2.91015 0 0 2.91015 0 6.5C0 10.0899 2.91015 13 6.5 13Z"
+                id="Oval" fill="none" fill-rule="evenodd" stroke="#171717" stroke-width="1.2" />
+              <path d="M0.5 0.5L6.5 6.5" transform="translate(11 11)" id="Line" fill="none" fill-rule="evenodd"
+                stroke="#171717" stroke-width="1.2" />
+            </g>
+          </g>
+        </svg>
+        <!-- <span class="fallback-text">Search</span> -->
+      </span>
+    </button>
+  </form>
+</div>
+<!-- <div class="search-bar-line">&nbsp;</div> -->

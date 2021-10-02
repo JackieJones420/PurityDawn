@@ -1,0 +1,213 @@
+
+
+
+<div class="main-col-link">
+  
+  <div class="col-link">
+   
+    <div class="grid par-item">
+   {%- for block in section.blocks -%}
+      
+      
+      <div class="grid__img">
+        <a href="{%- if block.settings.coll-link != blank -%}{{block.settings.coll-link}}{% endif %}">
+          
+         {%- if block.settings.image != blank -%} 
+        <div class="image-div">
+          <img src="{{ block.settings.image | img_url: '' }}">
+        </div>
+           {% endif %}
+        <div class="iamge-card__info">
+            {%- if block.settings.title != blank -%}
+          <div class="image-title">
+            
+            <h3>{{block.settings.title}}</h3>
+          
+          </div>
+            {%- endif -%}
+           {%- if block.settings.text-des != blank -%}
+          <div class="iamge-des">
+            
+            <p>{{block.settings.text-des}}</p>
+          </div>
+            {%- endif -%}
+          
+          
+        </div>
+        </a>
+        {%- if block.settings.linktext != blank -%}
+        <div class="btn-div">
+          <a href=" {%- if block.settings.link != blank -%}{{block.settings.link}}  {%- endif -%}">{{block.settings.linktext}}</a>
+        </div>
+        {%- endif -%}
+        
+      </div>
+      
+       {%- endfor -%}
+      
+    </div>
+    
+  </div>
+  
+  
+</div>
+
+
+<style>
+  
+ .grid.par-item {
+    justify-content: center;
+       margin-left: 30px;
+} 
+  .grid__img {
+    margin-right: 30px;
+}
+  
+  .grid__img {
+    margin-right: 30px;
+    max-width: 30%;
+    width: 30%;
+    text-align: center;
+}
+  .iamge-card__info h3 {
+  
+    font-weight: 600;
+    font: bold 14px/16px Arial,'Helvetica Neue',Helvetica,sans-serif;
+    letter-spacing: 2px;
+}
+  .iamge-card__info {
+    padding-top: 20px;
+}
+  .iamge-des p {
+    font: normal 22px/26px TimesNewRoman,'Times New Roman',Times,Baskerville,Georgia,serif;
+    letter-spacing: 0;
+}
+  .btn-div a {
+    color: #333;
+    transition: all .6s;
+    background: #fce4de;
+    border: 1px solid #fce4de;
+    display: inline-block;
+    padding: 12px 20px;
+    width: auto;
+    margin: 0;
+    line-height: 100%;
+    text-decoration: none;
+    text-transform: uppercase;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+    cursor: pointer;
+    font: bold 12px/14px Arial,'Helvetica Neue',Helvetica,sans-serif;
+    letter-spacing: 2px;
+}
+  .btn-div a:hover {
+    color: #fff;
+    border: 1px solid #a81d46;
+    background-color: #a81d46;
+}
+  .btn-div {
+    padding-top: 7px;
+}
+  .image-div:hover {
+    transform: scale(1.03);
+    transition: .6s all;
+}
+  .main-col-link {
+    margin-top: 60px;
+}
+  .main-col-link {
+    margin-top: 7rem;
+}
+  
+  
+  
+
+  @media screen and (max-width: 640px) {
+  
+  .main-col-link {
+     margin-top: 0px; 
+}
+}
+</style>
+
+
+
+
+{% schema %}
+{
+  "name": "multicolumn-link",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "default": "Multicolumn",
+      "label": "t:sections.multicolumn.settings.title.label"
+    }
+    
+      ],
+
+  "blocks": [
+    {
+      "type": "column",
+      "name": "t:sections.multicolumn.blocks.column.name",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "t:sections.multicolumn.blocks.column.settings.image.label"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "default": "Column",
+          "label": "Collection Title"
+        },
+        {
+          "type": "richtext",
+          "id": "text-des",
+          "default": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+          "label": "Description"
+        },
+ 		{
+          "type": "url",
+          "id": "coll-link",
+          "label": "Collection Link"
+        },
+
+ 
+    {
+      "id": "link",
+      "type": "url",
+      "label": "Button link"
+    },
+    {
+      "id": "linktext",
+      "type": "text",
+      "label": "Button text",
+      "default": "Click Here"
+    }
+
+
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.multicolumn.presets.name",
+      "blocks": [
+        {
+          "type": "column"
+        },
+        {
+          "type": "column"
+        },
+        {
+          "type": "column"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

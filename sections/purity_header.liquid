@@ -1,0 +1,94 @@
+{% comment %} CNT Custom Header Banner {% endcomment %}
+<header class="site-header medium-down--hide m-t-md" role="banner">
+  <div class="dawn_logo_header">
+
+    <div class="logo">
+      <a href="/" itemprop="url" class="site-header__logo-link inline">
+        <img
+          src="https://cdn.no-toxic.com/image/fetch/e_vectorize:5:20,f_svg/https://cdn.shopify.com/s/files/1/0648/1955/files/puritylogo_darkgrey-06.svg"
+          data-src="https://cdn.no-toxic.com/image/fetch/q_auto,f_auto,fl_lossy,w_108,f_auto,dpr_auto/https://cdn.shopify.com/s/files/1/0648/1955/files/puritylogo_darkgrey-06.svg"
+          class="cld-prepare" alt="{{ shop.name }}" itemprop="logo" height="50">
+      </a>
+    </div>
+    <div class="dawn_header_right_icons">
+      <div class="account_links">
+        <a href="/account" class="">Hey,
+          {% if customer %}
+          {{ customer.first_name | trim }}
+          {% else %}
+          Gorgeous
+          {% endif %}</a>
+        {% if customer %}
+        {%- if shop.name == 'ebeilytest' -%}
+        <div class="header__dropdown_points text-left alt-font-regular text-base">
+          {% for tag in customer.tags %}
+          {% case tag %}
+          {% when 'tier: Activist' %}
+          <span>Activist,</span>
+          {% break %}
+          {% when 'tier: Revolutionist' %}
+          <span>Revolutionist,</span>
+          {% break %}
+          {% when 'tier: Enthusiast' %}
+          <span>Enthusiast,</span>
+          {% when 'tier: Pure Activist' %}
+          <span>Activist,</span>
+          {% break %}
+          {% when 'tier: Pure Revolutionist' %}
+          <span>Revolutionist,</span>
+          {% break %}
+          {% when 'tier: Pure Enthusiast' %}
+          <span>Enthusiast,</span>
+          {% endcase %}
+          {% endfor %}
+          <span data-lion-points="approved"></span>
+          <span>pts</span>
+        </div>
+        {%- endif -%}
+        {% endif %}
+        <a class="" href="/account/login">
+          <?xml version="1.0" encoding="utf-8"?>
+          <svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink"
+            xmlns="http://www.w3.org/2000/svg">
+            <g id="IconsCart-Copy">
+              <g id="Group" transform="translate(3.5795994 1.75)">
+                <path
+                  d="M5 10C7.76142 10 10 7.76142 10 5C10 2.23858 7.76142 0 5 0C2.23858 0 0 2.23858 0 5C0 7.76142 2.23858 10 5 10Z"
+                  transform="translate(3.3938673 0)" id="Oval-Copy" fill="none" fill-rule="evenodd" stroke="#171717"
+                  stroke-width="1.2" />
+                <path
+                  d="M0.0437697 11.6033L16.6675 11.6033C16.6675 11.6033 17.3939 0 8.39387 0C-0.606133 0 0.0437697 11.6033 0.0437697 11.6033Z"
+                  transform="translate(7.283063E-14 10)" id="Path-3" fill="none" fill-rule="evenodd" stroke="#171717"
+                  stroke-width="1.2" />
+              </g>
+            </g>
+          </svg>
+        </a>
+      </div>
+      <div class="site-header__search">
+        {% include '_search-bar' %}
+      </div>
+      <a href="/cart" class="site-header__cart-toggle js-drawer-open-right" aria-controls="CartDrawer"
+        aria-expanded="false">
+        <span class="icon-fallback-text" style="margin-right: 15px;">
+          <?xml version="1.0" encoding="utf-8"?>
+          <svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink"
+            xmlns="http://www.w3.org/2000/svg">
+            <g id="IconsCart">
+              <g id="Group" transform="translate(2.875 1)">
+                <path
+                  d="M0.352593 8.62354C0.352593 8.62354 -1.17588 1.37462e-15 3.92148 1.86993e-18C9.01884 0 7.74549 8.62354 7.74549 8.62354"
+                  transform="translate(5 0)" id="Path-7" fill="none" fill-rule="evenodd" stroke="#171717"
+                  stroke-width="1.2" />
+                <path d="M2.85083 0L15.3875 0L18.5725 16.8264L0 16.8264L2.85083 0Z" transform="translate(0 5)"
+                  id="Path-8" fill="none" fill-rule="evenodd" stroke="#171717" stroke-width="1.2" />
+              </g>
+            </g>
+          </svg>
+          <span class="main-font" id="CartCount">{{ cart.item_count }}</span>
+        </span>
+      </a>
+    </div>
+
+  </div>
+</header>
